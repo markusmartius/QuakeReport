@@ -1,8 +1,6 @@
 package com.example.android.quakereport;
 
 import android.util.Log;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,7 +62,7 @@ public final class QueryUtils {
                 JSONObject featureProperties = featureObject.getJSONObject("properties");
 
                 // acquire the key values for the following from the feature properties
-                String magnitude = featureProperties.optString("mag").toString();
+                Double magnitude = featureProperties.getDouble("mag");
                 String place = featureProperties.optString("place").toString();
                 long time = featureProperties.optLong("time");
 

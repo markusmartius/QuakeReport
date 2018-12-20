@@ -1,18 +1,23 @@
 package com.example.android.quakereport;
 
 import android.app.Activity;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
+
+    private String offsetText;
+    private String primaryText;
+    private String locationString;
+    private Double magnitudeDouble;
+    private String newMagnitude;
 
     // New constructor
     public EarthquakeAdapter(Activity context, ArrayList<Earthquake> nameForArrayOfEarthquakeObjects) {
@@ -35,15 +40,32 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView magnitudeTextView = (TextView) listItemView.findViewById(R.id.magnitude);
+        // get the magnitude string for this earthquake in the convert method
+        // change magnitude to be a one decimal place value
+        // converts Double to String as well
+        String newMagnitude = formatMagnitude(currentEarthquake.getMagnitude());
         // Get the earthquake magnitude from the current Earthquake object and
         // set this text on the name TextView
-        magnitudeTextView.setText(currentEarthquake.getMagnitude());
+        magnitudeTextView.setText(newMagnitude);
 
+        // get location text from currentEarthquake and slip it at the desired point
+        locationString = currentEarthquake.getLocation();
+
+        if (locationString.contains("of")) {
+            String[] parts = locationString.split("(?<=of)");
+            offsetText = parts[0].trim();
+            primaryText = parts[1].trim();
+        } else {
+            offsetText = "Near the";
+        }
         // Find the TextView in the list_item.xml layout with the ID version_number
-        TextView locationTextView = (TextView) listItemView.findViewById(R.id.location);
-        // Get the earthquake location from the current Earthquake object and
-        // set this text on the name TextView
-        locationTextView.setText(currentEarthquake.getLocation());
+        TextView offsetTextView = (TextView) listItemView.findViewById(R.id.offset);
+        // Find the TextView in the list_item.xml layout with the ID version_number
+        TextView primaryTextView = (TextView) listItemView.findViewById(R.id.primary);
+        // add the offset location text to the text view
+        offsetTextView.setText(offsetText);
+        // set the primary location text to the text view
+        primaryTextView.setText(primaryText);
 
         // Create a new Date object from the time in milliseconds of the earthquake
         Date dateObject = new Date(currentEarthquake.getTimeInMilliseconds());
@@ -83,5 +105,14 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
     private String formatTime(Date dateObject) {
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
         return timeFormat.format(dateObject);
+    }
+
+    /**
+     * Return the formatted magnitude string showing 1 decimal place (i.e. "3.2")
+     * from a decimal magnitude value.
+     */
+    private String formatMagnitude(double magnitude) {
+        DecimalFormat magnitudeFormat = new DecimalFormat("0.0");
+        return magnitudeFormat.format(magnitude);
     }
 }

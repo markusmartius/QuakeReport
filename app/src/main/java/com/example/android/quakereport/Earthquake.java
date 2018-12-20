@@ -4,7 +4,7 @@ public class Earthquake {
     /**
      * Magnitude of the earthquake
      */ // the proceeding m just indicates a private variable
-    private String mMagnitude;
+    private Double mMagnitude;
     /**
      * Location the earthquake occurred
      */
@@ -22,7 +22,7 @@ public class Earthquake {
      * @param timeInMilliseconds    is the date the earthquake occurred
      *
      */
-    public Earthquake(String magnitude, String location, long timeInMilliseconds) {
+    public Earthquake(Double magnitude, String location, long timeInMilliseconds) {
         mMagnitude = magnitude;
         mLocation = location;
         mtimeInMilliseconds = timeInMilliseconds;
@@ -31,7 +31,7 @@ public class Earthquake {
     /**
      * Get the earthquake magnitude.
      */
-    public String getMagnitude() {
+    public Double getMagnitude() {
         return mMagnitude;
     }
 
