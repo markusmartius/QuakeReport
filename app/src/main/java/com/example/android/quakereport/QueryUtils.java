@@ -65,7 +65,7 @@ public final class QueryUtils {
                 // extract the magnitude of the earthquake
                 Double magnitude = featureProperties.getDouble("mag");
                 // extract where the earthquake occurred
-                String place = featureProperties.optString("place").toString();
+                String place = featureProperties.optString("place");
                 // extract the time of the earthquake
                 long time = featureProperties.optLong("time");
                 // extract the earthquate url

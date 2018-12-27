@@ -1,6 +1,9 @@
 package com.example.android.quakereport;
 
 import android.app.Activity;
+import android.app.LoaderManager;
+import android.content.Loader;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +16,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import android.graphics.drawable.GradientDrawable;
 
-public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
+public class EarthquakeAdapter extends ArrayAdapter<Earthquake> implements LoaderManager.LoaderCallbacks<Earthquake> {
 
     private String offsetText;
     private String primaryText;
     private String locationString;
-    private Double magnitudeDouble;
-    private String newMagnitude;
 
     // New constructor
     public EarthquakeAdapter(Activity context, ArrayList<Earthquake> nameForArrayOfEarthquakeObjects) {
@@ -162,4 +163,18 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         return ContextCompat.getColor(getContext(), magnitudeColorResourceId);
     }
 
+    @Override
+    public Loader<Earthquake> onCreateLoader(int id, Bundle args) {
+        return null;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Earthquake> loader, Earthquake data) {
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Earthquake> loader) {
+
+    }
 }
