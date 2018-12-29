@@ -21,29 +21,14 @@
     tools:context=".EarthquakeActivity"
     >
 
-    <ProgressBar
-        android:id="@+id/indeterminateBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="invisible" />
-
     <!-- Layout for a list of earthquakes -->
     <ListView
         android:id="@+id/list"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <TextView
-        android:id="@+id/internetState"
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        android:visibility="invisible"
-        android:text="@string/internet_state"/>
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
 
     <TextView
         android:id="@+id/empty"
@@ -51,7 +36,14 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:layout_centerInParent="true"
-        android:visibility="invisible"
+        android:textAppearance="?android:textAppearanceMedium"
         android:text="@string/empty"/>
+
+    <ProgressBar
+        android:id="@+id/indeterminateBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
