@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <!-- Layout for a list of earthquakes -->
     <ListView
@@ -37,6 +37,15 @@
         android:layout_height="match_parent"/>
 
     <TextView
+        android:id="@+id/internetState"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:text="@string/internet_state"/>
+
+    <TextView
         android:id="@+id/empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,7 +53,5 @@
         android:layout_centerInParent="true"
         android:visibility="invisible"
         android:text="@string/empty"/>
-
-
 
 </RelativeLayout>
