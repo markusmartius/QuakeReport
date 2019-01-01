@@ -27,7 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
                     Preference minMagnitude = findPreference(getString(R.string.settings_min_magnitude_key));
             bindPreferenceSummaryToValue(minMagnitude);
 
-            // Display the current orderingmethod under the setting option
+            // Display the current ordering method under the setting option
             Preference orderMethod = findPreference(getString(R.string.settings_order_by_key));
             bindPreferenceSummaryToValue(orderMethod);
         }
