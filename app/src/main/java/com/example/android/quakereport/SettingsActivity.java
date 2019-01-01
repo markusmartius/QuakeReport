@@ -23,8 +23,13 @@ public class SettingsActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_main);
 
-            Preference minMagnitude = findPreference(getString(R.string.settings_min_magnitude_key));
+            // Display the current magnitude value under the setting option
+                    Preference minMagnitude = findPreference(getString(R.string.settings_min_magnitude_key));
             bindPreferenceSummaryToValue(minMagnitude);
+
+            // Display the current orderingmethod under the setting option
+            Preference orderMethod = findPreference(getString(R.string.settings_order_by_key));
+            bindPreferenceSummaryToValue(orderMethod);
         }
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
