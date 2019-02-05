@@ -1,12 +1,12 @@
 package com.example.android.quakereport;
 
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.preference.ListPreference;
+        import android.preference.Preference;
+        import android.preference.PreferenceFragment;
+        import android.preference.PreferenceManager;
+        import android.support.v7.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -24,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
             addPreferencesFromResource(R.xml.settings_main);
 
             // Display the current magnitude value under the setting option
-                    Preference minMagnitude = findPreference(getString(R.string.settings_min_magnitude_key));
+            Preference minMagnitude = findPreference(getString(R.string.settings_min_magnitude_key));
             bindPreferenceSummaryToValue(minMagnitude);
 
             // Display the current ordering method under the setting option
